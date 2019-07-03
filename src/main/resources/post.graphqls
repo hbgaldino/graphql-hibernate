@@ -13,3 +13,7 @@ type Query {
     getAllPosts: [Post]!
     getPost(id: Int!): Post!
 }
+
+type Mutation {
+    createPost(title: String!): Post
+}

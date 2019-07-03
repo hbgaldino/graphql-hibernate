@@ -1,5 +1,6 @@
 package br.com.higor.graphqlhibernate;
 
+import br.com.higor.graphqlhibernate.graphql.Mutation;
 import br.com.higor.graphqlhibernate.graphql.Query;
 import br.com.higor.graphqlhibernate.repository.CommentRepository;
 import br.com.higor.graphqlhibernate.repository.PostRepository;
@@ -17,5 +18,10 @@ public class GraphqlHibernateApplication {
 	@Bean
 	public Query query(PostRepository postRepository, CommentRepository commentRepository) {
 		return new Query(postRepository, commentRepository);
+	}
+
+	@Bean
+	public Mutation mutation(PostRepository postRepository) {
+		return new Mutation(postRepository);
 	}
 }

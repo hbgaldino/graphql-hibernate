@@ -23,4 +23,14 @@ public class Post {
     private LocalDateTime createdAt;
 
     private LocalDateTime updatedAt;
+
+    @PrePersist
+    private void prePersist() {
+        this.createdAt = this.updatedAt = LocalDateTime.now();
+    }
+
+    @PreUpdate
+    private void preUpdate() {
+        this.updatedAt = LocalDateTime.now();
+    }
 }
