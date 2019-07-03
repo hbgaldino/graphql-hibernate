@@ -9,10 +9,11 @@ import java.time.LocalDateTime;
 @Data
 public class Comment {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(columnDefinition = "INT")
     private Long id;
 
-    @Column(name = "post_id")
+    @Column(name = "post_id", columnDefinition = "INT")
     private Long postId;
 
     private String username;
