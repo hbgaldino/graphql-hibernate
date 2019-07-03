@@ -16,12 +16,12 @@ public class GraphqlHibernateApplication {
 	}
 
 	@Bean
-	public Query query(PostRepository postRepository, CommentRepository commentRepository) {
-		return new Query(postRepository, commentRepository);
+	public Query query(final PostRepository postRepository) {
+		return new Query(postRepository);
 	}
 
 	@Bean
-	public Mutation mutation(PostRepository postRepository) {
-		return new Mutation(postRepository);
+	public Mutation mutation(PostRepository postRepository, CommentRepository commentRepository) {
+		return new Mutation(postRepository, commentRepository);
 	}
 }

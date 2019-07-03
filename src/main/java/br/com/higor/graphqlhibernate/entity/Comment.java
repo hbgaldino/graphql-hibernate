@@ -14,8 +14,19 @@ public class Comment {
 
     @Column(name = "post_id")
     private Long postId;
+
     private String username;
     private String comment;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
+
+    @PrePersist
+    private void prePersist() {
+        this.createdAt = this.updatedAt = LocalDateTime.now();
+    }
+
+    @PreUpdate
+    private void preUpdate() {
+        this.updatedAt = LocalDateTime.now();
+    }
 }

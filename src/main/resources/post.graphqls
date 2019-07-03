@@ -7,6 +7,15 @@ type Post {
     title: String!
     createdAt: String!
     updatedAt: String!
+    comments: [Comment]
+}
+
+type Comment {
+    id: ID!
+    username: String
+    comment: String
+    createdAt: String!
+    updatedAt: String!
 }
 
 type Query {
@@ -16,4 +25,5 @@ type Query {
 
 type Mutation {
     createPost(title: String!): Post
+    commentPost(id: Int!, comment: String!): Comment
 }
